@@ -1,8 +1,8 @@
 %% 穷举
 % 因为从第二个陷阱开始的概率分布与前面的概率分布有关
 % 暂时只想到穷举的方法
-% 暂时先穷举前20个的排列组合
-max=20;
+% 暂时先穷举前30个的排列组合
+max=30;
 max_u8=uint8(max);
 count=0;
 count_exp=nchoosek(max-1,5);
@@ -29,9 +29,11 @@ p_test_sorted=sortrows(p_test_index,1);
 ind_traped_min=p_test_sorted(1,2);
 p_traped_min=p_test(ind_traped_min);
 p_win_max=1-p_traped_min;
+disp(trapsDB(ind_traped_min,:));
 fprintf('最大获胜概率为%f\n',p_win_max);
 %最小获胜概率
 ind_traped_max=p_test_sorted(end,2);
 p_traped_max=p_test(ind_traped_max);
 p_win_min=1-p_traped_max;
+disp(trapsDB(ind_traped_max,:));
 fprintf('最小获胜概率为%f\n',p_win_min);
