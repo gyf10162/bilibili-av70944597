@@ -16,6 +16,9 @@ for j=1:100
 end
 %% »æÍ¼
 bar(p);
+xlabel('¸ñÊı');
+ylabel('¸ÅÂÊ');
+grid on;
 %% ÅÅĞò
 p_index=[p;1:100]';
 p_sorted=sortrows(p_index,1);
