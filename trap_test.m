@@ -29,11 +29,13 @@ p_test_sorted=sortrows(p_test_index,1);
 ind_traped_min=p_test_sorted(1,2);
 p_traped_min=p_test(ind_traped_min);
 p_win_max=1-p_traped_min;
+fprintf('最大获胜概率为%.12f\n',p_win_max);
+disp 陷阱为:
 disp(trapsDB(ind_traped_min,:));
-fprintf('最大获胜概率为%f\n',p_win_max);
 %最小获胜概率
 ind_traped_max=p_test_sorted(end,2);
 p_traped_max=p_test(ind_traped_max);
 p_win_min=1-p_traped_max;
+fprintf('最小获胜概率为%.12f\n',p_win_min);
+disp 陷阱为:
 disp(trapsDB(ind_traped_max,:));
-fprintf('最小获胜概率为%f\n',p_win_min);

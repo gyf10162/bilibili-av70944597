@@ -1,4 +1,4 @@
-% 验证算法正确
+% 验证算法正确（无铠甲）
 pass = 0;
 fail = 0;
 n=1000000;
@@ -16,4 +16,5 @@ for i=1:n
         pass = pass+1;
     end
 end
-passrate = pass/n
+passrate = pass/n;
+fprintf('获胜概率为%f\n',passrate);
