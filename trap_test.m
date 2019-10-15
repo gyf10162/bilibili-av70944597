@@ -1,21 +1,24 @@
 %% 穷举
 % 因为从第二个陷阱开始的概率分布与前面的概率分布有关
 % 暂时只想到穷举的方法
-% 暂时先穷举前30个的排列组合
-max=30;
+% 由于优化了算法，因此直接穷举2到99格的所有组合
+min=2;
+max=99;
 max_u8=uint8(max);
 count=0;
-count_exp=nchoosek(max-1,5);
+count_exp=nchoosek(max-min+1,5);
 trapsDB=zeros(count_exp,5);
 p_test=zeros(1,count_exp);
-for i1=uint8(2):max_u8
-    for i2=i1+uint8(1):max_u8
-        for i3=i2+uint8(1):max_u8
-            for i4=i3+uint8(1):max_u8
-                for i5=i4+uint8(1):max_u8
+% 由于骰子面数确定时，玩家到达每一格（无陷阱）的概率是确定的，因此提前计算好概率表
+pTable = trap_viatable(100);
+for i1 = uint8(min):max_u8
+    for i2 = i1+uint8(1):max_u8
+        for i3 = i2+uint8(1):max_u8
+            for i4 = i3+uint8(1):max_u8
+                for i5 = i4+uint8(1):max_u8
                     traps=[i1,i2,i3,i4,i5];
                     count=count+1;
-                    p_test(1,count)=trap_cal(traps);
+                    p_test(1,count)=trap_cal(traps,pTable);
                     trapsDB(count,:)=traps;
                 end
             end
