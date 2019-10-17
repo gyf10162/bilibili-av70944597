@@ -19,7 +19,7 @@ for i = 1:nTraps
         for j = i+1:nTraps
             tmp = pTrap(k,i)*pTable(traps(j)-traps(i)+1);
             pTrap(k,j) = pTrap(k,j) - tmp;
-            if k~=lives
+            if k ~= lives
                 pTrap(k+1,j) = pTrap(k+1,j) + tmp;
             end
         end
